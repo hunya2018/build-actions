@@ -67,6 +67,7 @@ export rootfs_size="2560"
 export kernel_usage="stable"
 
 
+sed -i "6i uci set network.lan.ifname='eth0 eth2 eth3'" ./package/lean/default-settings/files/zzz-default-settings
 
 # 修改插件名字
 sed -i 's/"终端"/"TTYD"/g' `egrep "终端" -rl ./`
