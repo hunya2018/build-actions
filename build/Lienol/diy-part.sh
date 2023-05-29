@@ -67,7 +67,7 @@ export rootfs_size="2560"
 export kernel_usage="stable"
 
 
-sed -i "2i\uci set network.lan.ifname='eth0 eth2 eth3'" /home/runner/work/build-actions/build-actions/openwrt/package/default-settings/files/zzz-default-settings
+sed -i 's/local lan_if="$1"/local lan_if="$1 $3 $4"/g' /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/functions/uci-defaults.sh
 
 # 修改插件名字
 sed -i 's/"终端"/"TTYD"/g' `egrep "终端" -rl ./`
