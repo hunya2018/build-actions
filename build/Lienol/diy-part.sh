@@ -67,9 +67,9 @@ export rootfs_size="2560"
 export kernel_usage="stable"
 
 
-sed -i 's/local lan_if="$1"/local lan_if="$1 $3 $4"/g' /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/functions/uci-defaults.sh
 
 # 修改插件名字
+sed -i 's/local lan_if="$1"/local lan_if="$1 $3 $4"/g' /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/functions/uci-defaults.sh
 sed -i 's/"终端"/"TTYD"/g' `egrep "终端" -rl ./`
 sed -i 's/"aMule设置"/"电驴下载"/g' `egrep "aMule设置" -rl ./`
 sed -i 's/"网络存储"/"NAS"/g' `egrep "网络存储" -rl ./`
