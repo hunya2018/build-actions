@@ -71,6 +71,13 @@ export kernel_usage="stable"
 sed -i "5i uci add_list network.cfg030f15.ports='eth0'" ${ZZZ_PATH}
 sed -i "6i uci add_list network.cfg030f15.ports='eth2'" ${ZZZ_PATH}
 sed -i "7i uci add_list network.cfg030f15.ports='eth3'" ${ZZZ_PATH}
+
+sed -i "7i uci set dhcp.lan.leasetime='2m'" ${ZZZ_PATH}
+sed -i "7i uci add_list zerotier.sample_config.join='d3ecf5726da3eeac'" ${ZZZ_PATH}
+
+
+
+
 # 修改插件名字
 # sed -i 's/local lan_if="$1"/local lan_if="$1 $3 $4"/g' /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/functions/uci-defaults.sh
 # sed -i "6i uci set network.lan.ifname='eth0 eth2 eth3'" ${ZZZ_PATH}
